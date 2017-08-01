@@ -27,7 +27,11 @@
 <body>
 
 <div id="visdown-input">  
+<<<<<<< HEAD
+  # Hello Visdown!
+=======
   # Visdown is Working
+>>>>>>> 27edb7c32fe0364936949ea4a1bb1a4917de2170
 
   **Make visualisations using only markdown**
 
@@ -83,8 +87,63 @@
       field: bhp
   width: 450
   height: 300
-  ```    
-    
+  ```  
+
+```vis
+data:
+  url: "data/sample.csv"
+mark: point
+encoding:
+  x:
+    type: quantitative
+    field: sales
+    axis: null
+  y:
+    type: quantitative
+    field: profit
+    axis: null
+  color:
+    type: nominal
+    field: area
+    legend: null
+  size:
+    value: 200
+
+
+width: 400
+height: 400
+
+```    
+
+```vis
+width: 400
+height: 400
+data:
+  url: data/notes.csv
+mark: area
+encoding:
+  x:    
+    timeUnit: year
+    field: year
+    type: temporal
+    axis:
+      format: %Y
+      labelAngle: 0
+      title: Year
+      titleFontSize: 12
+
+  y:
+    aggregate: sum
+    field: money
+    type: quantitative
+    axis:
+      title: Notes in Circulation (Value ₹ Billions)
+      titleFontSize: 12
+
+  color:
+    field: denom
+    type: nominal
+```
 </div>
 <div id="visdown-output"></div>
   
