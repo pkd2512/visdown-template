@@ -87,7 +87,7 @@
       field: bhp
   width: 450
   height: 300
-  ```  
+```  
 
 ```vis
 data:
@@ -144,6 +144,154 @@ encoding:
     field: denom
     type: nominal
 ```
+
+
+
+## DISTRIBUTION
+
+```vis
+width: 400
+height: 400
+data:
+  url: data/notes.csv
+mark: tick
+encoding:
+  y: 
+    field: denom
+    type: ordinal
+
+    
+  x:
+    field: number
+    type: quantitative 
+     
+  <!-- color:
+    field: money
+    type: quantitative --> 
+  
+```
+
+
+## RANKING
+
+```vis
+width: 400
+height: 400
+data:
+  url: data/notes.csv
+mark: circle
+encoding:
+  x: 
+    field: denom
+    type: ordinal
+
+    
+  <!-- y:
+    field: number
+    type: quantitative --> 
+
+  size:
+    field: money
+    type: quantitative  
+       
+```
+
+
+## MAGNITUDE
+
+```vis
+width: 400
+height: 400
+data:
+  url: data/notes.csv
+mark: bar
+encoding:
+  x: 
+    field: denom
+    type: ordinal
+
+    
+  y:
+    field: money
+    type: quantitative 
+
+  <!-- size:
+    field: money
+    type: quantitative -->  
+
+```
+
+## PART-TO-WHOLE 
+
+
+```vis
+width: 400
+height: 400
+data:
+  url: data/notes.csv
+mark: bar
+encoding:
+  x: 
+    field: type
+    type: ordinal
+
+    
+  y:
+    aggregate: sum
+    field: number
+    type: quantitative 
+
+  color:
+    field: denom
+    type: nominal   
+
+```
+
+# LOLLIPOP CHART
+
+```vis
+width: 600
+height: 600
+
+data:
+  url: data/notes.csv
+  
+transform:
+  - 
+    filter: datum.year == 2015
+
+layer:
+ - mark: bar
+
+   encoding:
+    y:
+      type: nominal
+      field: denom
+
+    x:
+      type: quantitative
+      field: number
+
+    color:
+      type: nominal
+      field: denom 
+
+ - mark: circle
+
+   encoding:
+    y:
+      type: nominal
+      field: denom
+
+    x:
+      type: quantitative
+      field: number
+      
+    color:
+      type: nominal
+      field: denom 
+```
+
 </div>
 <div id="visdown-output"></div>
   
