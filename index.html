@@ -21,6 +21,11 @@
       #visdown-input {
         display: none;
       }
+
+      body {
+        background-color: black;
+        color: white;
+      }
     </style>  
 
 </head>
@@ -290,6 +295,69 @@ layer:
     color:
       type: nominal
       field: denom 
+```
+
+## RESOLVE
+**Combined**
+
+```vis
+width: 400
+height: 300
+data:
+  url: data/notes.csv
+layer:
+- mark: area
+  encoding:
+    x:
+      field: year
+      type: temporal
+      axis:
+        format: %Y
+        labelAngle: 0
+    y:
+      aggregate: sum
+      field: money
+      type: quantitative
+      stack: normalize
+      axis:
+        format: %
+    color:
+      field: denom
+      type: quantitative
+      scale:
+        range: 
+        - pink
+        - blue            
+- mark: line
+  encoding:
+    x:
+      field: year
+      type: temporal
+      axis:
+        format: %Y
+        labelAngle: 0
+    y:
+      aggregate: sum
+      field: number
+      type: quantitative
+    size:
+      value: 3
+    color:
+      value: black
+resolve:
+  y:
+    scale: independent
+
+config:
+  background: black
+  axis:
+    domainColor: white
+    labelColor: white
+    titleColor: white
+  legend:
+    labelColor: white
+    titleColor: white
+
 ```
 
 </div>
